@@ -1,7 +1,10 @@
 package com.per.leetcode.round.first.no4;
 
+import java.util.concurrent.*;
+
 /**
  * NO 4
+ *
  * @author Xavier
  * @date 2024/1/19 14:17
  */
@@ -38,4 +41,22 @@ public class MedianOfTwoSortedArraysMergeSort {
             return getMin(nums1, nums2);
         }
     }
+
+    public static void main(String[] args) throws InterruptedException, ExecutionException {
+        ExecutorService executorService = Executors.newSingleThreadExecutor(r -> new Thread("clearRecordTask"));
+
+        System.out.println("start");
+        Future<?> future = executorService.submit(() -> {
+//            System.out.println("haha");
+            return "";
+        });
+        Object o = future.get();
+        System.out.println("end");
+
+        executorService.shutdown();
+
+        Thread.sleep(3000);
+    }
 }
+
+
