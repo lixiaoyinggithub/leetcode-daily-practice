@@ -12,6 +12,7 @@
         <module>round-1</module>
         <module>round-2</module>
         <module>round-3</module>
+        <module>basic-practise</module>
     </modules>
 
     <properties>
