@@ -48,25 +48,20 @@ public class Q567SlideWin {
         int valid = 0;
         while (right < s2Len) {
             char c = s2.charAt(right);
-
-            if (need.containsKey(c)) {
-                window.put(c, window.getOrDefault(c, 0) + 1);
-                if (window.get(c).equals(need.get(c))) {
-                    valid++;
+            window.put(c, window.getOrDefault(c, 0) + 1);
+            if (window.get(c).equals(need.get(c))) {
+                valid++;
+                if (valid == need.size()) {
+                    return true;
                 }
             }
             right++;
             while (right - left + 1 > s1Len) {
-                if (valid == need.size()) {
-                    return true;
-                }
                 char d = s2.charAt(left);
-                if (need.containsKey(d)) {
-                    if (window.get(d).equals(need.get(d))) {
-                        valid--;
-                    }
-                    window.put(d, window.getOrDefault(d, 0) - 1);
+                if (window.get(d).equals(need.get(d))) {
+                    valid--;
                 }
+                window.put(d, window.getOrDefault(d, 0) - 1);
                 left++;
 
             }
@@ -75,11 +70,6 @@ public class Q567SlideWin {
     }
 
 
-    /**
-     * 在对窗口操作前，可以先判断是否属于s1的字符，如果不是，不需要放入窗口
-     *
-     * @param args
-     */
     public static void main(String[] args) {
         System.out.println(checkInclusion("ab", "eidboaoo"));
 //        System.out.println(checkInclusion("ab", "asdhajskhdab"));
